@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Interest Calculator</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+<!--This part is for declaring the HTML element, the
+language, and the head with the meta and css inside.-->
+
+<body>
+    <div class="container">
+        <!--This is the main wrapper of the website.-->
+        <h1>Loan Interest Calculator</h1>
+
+        <% if (error) { %>
+            <div class="card error">
+                <!--This div class will give style to the result card.-->
+                <p><%= error %></p>
+            </div>
+        <% } else { %>
+            <div class="card result">
+                <h2>Loan Calculation Result</h2>
+
+                <p><strong>Loan Amount: </strong> $<%= loan.amount.toFixed(2) %></p>
+                <p><strong>Interest Rate:</strong> <%= loan.rate %>%</p>
+
+                <hr />
+
+                <h3>Interest Paid</h3>
+                <p><strong>Monthly:</strong> $<%= loan.monthlyInterest.toFixed(2) %></p>
+                <p><strong>In 3 Years:</strong> $<%= loan.totalInterest.toFixed(2) %></p>
+            </div>
+        <% } %>
+        <!--The if else statement in this case will check if there is an error made to the calculation.
+        If not, the program will post the result on the website.-->
+    </div>
+</body>
+</html>
